@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Js Piano kit</title>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+
+<body>
+
+  <div class='keys'>
+        <div data-key='65' class='key'>
+        <kdb>A</kdb>
+        <span class='sound'>01</span>
+    </div>
+
+    <div data-key='83' class='key'>
+        <kdb>S</kdb>
+        <span class='sound'>02</span>
+    </div>
+    <div data-key='68' class='key'>
+        <kdb>D</kdb>
+        <span class='sound'>03</span>
+    </div>
+
+    <div data-key='70' class='key'>
+        <kdb>F</kdb>
+        <span class='sound'>04</span>
+    </div>
+
+    <div data-key="71" class='key'>
+        <kdb>G</kdb>
+        <span class='sound'>05</span>
+    </div>
+
+    <div data-key="72" class='key'>
+        <kdb>H</kdb>
+        <span class='sound'>06</span>
+    </div> 
+
+    <div data-key="74" class='key'>
+        <kdb>J</kdb>
+        <span class='sound'>07</span>
+    </div>
+
+    <div data-key="75" class='key'>
+        <kdb>K</kdb>
+        <span class='sound'>08</span>
+    </div>
+
+    <div data-key='76' class='key'>
+        <kdb>L</kdb>
+        <span class='sound'>09</span>
+    </div>
+
+    <div data-key='186' class='key'>
+        <kdb>Ç</kdb>
+        <span class='sound'>10</span>
+    </div>
+
+  </div>
+
+<audio data-key="65"  src='Piano110.mp3'></audio>
+<audio data-key="83"  src='Piano111.mp3'></audio>
+<audio data-key="68"  src='Piano112.mp3'></audio>
+<audio data-key="70"  src='Piano113.mp3'></audio>
+<audio data-key="71"  src='Piano114.mp3'></audio>
+<audio data-key="72"  src='Piano115.mp3'></audio>
+<audio data-key="74"  src='Piano116.mp3'></audio>
+<audio data-key="75"  src='Piano117.mp3'></audio>
+<audio data-key="76"  src='Piano118.mp3'></audio>
+<audio data-key='186' src='Piano119.mp3'></audio>
+
+<script>
+  function removeTransition(e) {
+    if (e.propertyName!=='transform') return;
+    e.target.classList.remove('playing');
+  }
+  function playSound(e) {
+    const audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key=document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if(!audio)return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+  const keys=Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key=>key.addEventListener('transitionend',removeTransition));
+  window.addEventListener('keydown',playSound);
+</script>
+ 
+
+</body>
+</html>
+

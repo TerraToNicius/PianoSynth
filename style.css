@@ -1,0 +1,51 @@
+html{
+    font-size: 10px;
+    background: url('wp2343900.png');
+    background-size: cover;  
+}
+
+body,html{
+    margin: 0;
+    padding: 0 ;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.keys{ 
+display:flex;
+flex:1;
+min-height: 100vh;
+align-items: center;
+justify-content: center;
+}
+
+.key{
+   border: .3rem solid #f5cd79;
+   border-radius: .4rem;
+   margin:3rem;
+   font-size: 1rem;
+   padding: 1rem .5rem;
+   transition: all 1s ease;
+   width: 8rem;
+   text-align: center;
+   color: #f78fb3;
+   text-shadow: 0 0 2.5rem #f5cd79;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #f8a5c2;
+    box-shadow: 0 0 3.5rem #f8a5c2;
+}
+
+kdb{
+    display: block;
+    font-size: 5rem;
+}
+
+.sound{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #f8a5c2
+}
+
